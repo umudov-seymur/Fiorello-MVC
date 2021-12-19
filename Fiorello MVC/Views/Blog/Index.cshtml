@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Blogs";
+    ViewData["SectionTitle"] = ViewData["Title"];
+}
+
+<partial name="_PageHeaderPartial" view-data="ViewData" />
+
+<!-- BLOG START -->
+<section id="blog">
+    <div class="container my-5">
+        @await Component.InvokeAsync("BlogList")
+    </div>
+</section>
+<!-- BLOG END -->

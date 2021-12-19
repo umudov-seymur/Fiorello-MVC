@@ -1,0 +1,19 @@
+﻿<!-- PRODUCTS START -->
+<section id="products">
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-12 d-flex justify-content-between">
+                @await Component.InvokeAsync("ProductCategoryList")
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="" class="mr-2">Filter</a>
+                        <i class="fas fa-caret-down"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @await Component.InvokeAsync("ProductList")
+    </div>
+</section>
+<!-- PRODUCTS END -->

@@ -1,0 +1,17 @@
+﻿@{
+    var navListClass = ViewData["navListClass"];
+    var navItemClass = ViewData["navItemClass"] ?? String.Empty;
+    var navLinkClass = ViewData["navLinkClass"] ?? String.Empty;
+    string[] menus = { "Home", "About", "Shop", "Experts", "Blogs" };
+}
+
+<ul class="@navListClass">
+    @foreach (string menu in menus)
+    {
+        <li class="@navItemClass">
+            <a class="@navLinkClass" asp-controller="@menu.Replace("s", "")" asp-action="Index">
+                @menu
+            </a>
+        </li>
+    }
+</ul>

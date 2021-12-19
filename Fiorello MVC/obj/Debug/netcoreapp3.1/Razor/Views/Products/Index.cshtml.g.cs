@@ -14,20 +14,27 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Views\_ViewImports.cshtml"
-using Fiorello_MVC.ViewModels;
+using Fiorello_MVC.Helpers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Views\_ViewImports.cshtml"
+using Fiorello_MVC.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Views\_ViewImports.cshtml"
 using Fiorello_MVC.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"559e567b8d4fb200c0ebd29a80bcd23ed8469400", @"/Views/Products/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0a1b0e57c3fedc96faeb7487fa20b4bd86433fe6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a59b34639ff12454ea3ef4c1fac742507356b829", @"/Views/_ViewImports.cshtml")]
     public class Views_Products_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

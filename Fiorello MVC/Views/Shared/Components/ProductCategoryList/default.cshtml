@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ProductCategory>
+
+<ul class="category-mobile d-md-none list-unstyled">
+    <li>
+        <a href="" class="categories mr-2">Categories</a>
+        <i class="fas fa-caret-down"></i>
+        <ul class="category list-unstyled" style="display: none;">
+            @foreach (var category in Model)
+            {
+                <li>
+                    <a href="#" data-id="@Helpers.CategorySlug(category.Name, category.Id)">@category.Name</a>
+                </li>
+            }
+        </ul>
+    </li>
+</ul>
+<ul class="category d-none d-md-flex list-unstyled">
+    <li><a href="" data-id="all">All</a></li>
+    @foreach (var category in Model)
+    {
+        <li>
+            <a href="#" data-id="@Helpers.CategorySlug(category.Name, category.Id)">@category.Name</a>
+        </li>
+    }
+</ul>

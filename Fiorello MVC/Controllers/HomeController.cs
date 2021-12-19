@@ -2,6 +2,10 @@
 using Fiorello_MVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Fiorello_MVC.Controllers
@@ -9,10 +13,14 @@ namespace Fiorello_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;
+        static HttpClient client = new HttpClient();
 
         public HomeController(AppDbContext context)
         {
             _context = context;
+            client.BaseAddress = new Uri("https://www.instagram.com/");
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task<IActionResult> Index()
@@ -20,19 +28,11 @@ namespace Fiorello_MVC.Controllers
             HomeViewModel ViewModel = new HomeViewModel
             {
                 Sliders = await _context.Sliders
-                    .Include(d => d.Image)
-                    .ToListAsync(),
-                ProductCategories = await _context.ProductCategories.ToListAsync(),
-                Products = await _context.Products
-                    .Include(d => d.Image)
-                    .Include(d => d.Category)
+                    .Where(slider => slider.DeletedAt == null)
                     .ToListAsync(),
                 Experts = await _context.Experts
-                    .Include(d => d.Image)
+                    .Where(expert => expert.DeletedAt == null)
                     .Include(d => d.Position)
-                    .ToListAsync(),
-                Blogs = await _context.Blogs
-                    .Include(d => d.Image)
                     .ToListAsync()
             };
 

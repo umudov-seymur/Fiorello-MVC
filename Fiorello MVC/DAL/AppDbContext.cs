@@ -12,9 +12,11 @@ namespace Fiorello_MVC.DAL
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ExpertPosition> ExpertPositions { get; set; }
         public DbSet<Expert> Experts { get; set; }
         public DbSet<Blog> Blogs { get; set; }
-        public DbSet<Image> Images { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<TestimonialAuthor> TestimonialAuthors { get; set; }
     }
 }

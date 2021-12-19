@@ -6,12 +6,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211219100944_q.cs" />
+    <Compile Remove="Migrations\20211219100944_q.Designer.cs" />
+    <Compile Remove="Migrations\20211219105403_CreateProductImagesTabled.cs" />
+    <Compile Remove="Migrations\20211219105403_CreateProductImagesTabled.Designer.cs" />
+    <Compile Remove="Migrations\20211219110528_CreateProductsTable.cs" />
+    <Compile Remove="Migrations\20211219110528_CreateProductsTable.Designer.cs" />
+    <Compile Remove="Migrations\20211219110552_CreateProductCategoriesTable.cs" />
+    <Compile Remove="Migrations\20211219110552_CreateProductCategoriesTable.Designer.cs" />
+    <Compile Remove="Migrations\20211219110717_CreateProductsTable.cs" />
+    <Compile Remove="Migrations\20211219110717_CreateProductsTable.Designer.cs" />
+    <Compile Remove="Migrations\20211219113125_CreateExpertAndPositionsTable.cs" />
+    <Compile Remove="Migrations\20211219113125_CreateExpertAndPositionsTable.Designer.cs" />
+    <Compile Remove="Migrations\20211219202706_CreateTestimonial.cs" />
+    <Compile Remove="Migrations\20211219202706_CreateTestimonial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
 </Project>

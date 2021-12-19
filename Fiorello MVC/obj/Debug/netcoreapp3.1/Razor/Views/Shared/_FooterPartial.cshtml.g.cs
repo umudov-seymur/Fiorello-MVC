@@ -14,20 +14,27 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Views\_ViewImports.cshtml"
-using Fiorello_MVC.ViewModels;
+using Fiorello_MVC.Helpers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Views\_ViewImports.cshtml"
+using Fiorello_MVC.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Views\_ViewImports.cshtml"
 using Fiorello_MVC.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ba9ae7b34decbc77c986289ad37abd0e011c30c5", @"/Views/Shared/_FooterPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0a1b0e57c3fedc96faeb7487fa20b4bd86433fe6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a59b34639ff12454ea3ef4c1fac742507356b829", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__FooterPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/img/footer-bottom-1.png"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -169,7 +176,7 @@ using Fiorello_MVC.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                </p>\r\n            </div>\r\n            <div class=\" col-lg-4 text-center\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ba9ae7b34decbc77c986289ad37abd0e011c30c510291", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ba9ae7b34decbc77c986289ad37abd0e011c30c510467", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
