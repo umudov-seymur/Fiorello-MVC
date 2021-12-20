@@ -5,6 +5,7 @@ namespace Fiorello_MVC.ViewModels
 {
     public class HomeViewModel
     {
+        public List<Setting> Settings;
         public List<Slider> Sliders;
         public List<ProductCategory> ProductCategories;
         public List<Product> Products;

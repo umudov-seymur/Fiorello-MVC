@@ -1,0 +1,19 @@
+﻿<!-- ABOUT START -->
+<section id="about">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-6">
+                <div class="img">
+                    <img src="~/assets/img/@ViewBag.AboutImage" class="img-fluid" alt="">
+                    <div class="player position-absolute rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="fas fa-play fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                @Html.Raw(@ViewBag.AboutText)
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ABOUT END -->

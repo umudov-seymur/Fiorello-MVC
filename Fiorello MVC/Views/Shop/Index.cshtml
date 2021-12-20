@@ -3,8 +3,18 @@
     ViewData["SectionTitle"] = ViewData["Title"];
 }
 
-<partial name="_PageHeaderPartial" view-data="ViewData"/>
+<partial name="_PageHeaderPartial" view-data="ViewData" />
 
 <!-- PRODUCTS START -->
 <partial name="_ProductListPartial" />
 <!-- PRODUCTS END -->
+
+<input type="hidden" id="products-count" value="@ViewBag.ProductsCount" />
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center my-4">
+            <button class="btn btn-primary load-more-products">Load More</button>
+        </div>
+    </div>
+</section>

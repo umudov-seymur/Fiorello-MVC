@@ -13,7 +13,9 @@
                 </ul>
             </div>
         </div>
-        @await Component.InvokeAsync("ProductList")
+        <div class="row product-list">
+            @await Component.InvokeAsync("ProductList")
+        </div>
     </div>
 </section>
 <!-- PRODUCTS END -->

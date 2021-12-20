@@ -12476,7 +12476,7 @@
         }
       },
       {
-        "HashCode": 62360688,
+        "HashCode": 1992098059,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__ProductListViewComponentTagHelper",
         "AssemblyName": "Fiorello MVC",
@@ -12484,6 +12484,16 @@
         "TagMatchingRules": [
           {
             "TagName": "vc:product-list"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "MVC.ViewComponent",
+            "Name": "skip",
+            "TypeName": "System.Int32?",
+            "Metadata": {
+              "Common.PropertyName": "skip"
+            }
           }
         ],
         "Metadata": {

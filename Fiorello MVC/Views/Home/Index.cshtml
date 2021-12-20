@@ -20,12 +20,10 @@
         <div class="row">
             <div class="col-lg-5">
                 <div class="text">
-                    <h1>Send <span>flowers</span> like</h1>
-                    <h1>you mean it</h1>
-                    <p class="text-black-50 d-none d-sm-block">
-                        Where flowers are our inspiration to create lasting memories. Whatever the occasion, our flowers will
-                        make it special cursus a sit amet mauris.
-                    </p>
+                    <h1>
+                        @Html.Raw(@Model.Settings.Where(setting => setting.Key == "slider_section_title").FirstOrDefault().Value)
+                    </h1>
+                    @Html.Raw(Model.Settings.Where(setting => setting.Key == "slider_section_description").FirstOrDefault().Value)
                 </div>
                 <div class="img">
                     <img src="~/assets/img/h2-sign-img.png" alt="">
@@ -38,9 +36,9 @@
 <!-- PRODUCTS START -->
 <partial name="_ProductListPartial" />
 <!-- PRODUCTS END -->
-<!-- ABOUT START -->
-<partial name="_AboutPartial" />
-<!-- ABOUT END -->
+
+@await Component.InvokeAsync("About")
+
 <!-- EXPERTS START -->
 <section id="experts">
     <div class="container">

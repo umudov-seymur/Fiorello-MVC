@@ -18,5 +18,6 @@ namespace Fiorello_MVC.DAL
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<TestimonialAuthor> TestimonialAuthors { get; set; }
+        public DbSet<Setting> Settings { get; set; }
     }
 }

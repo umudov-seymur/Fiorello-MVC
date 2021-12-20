@@ -4,4 +4,5 @@
 }
 
 <partial name="_PageHeaderPartial" view-data="ViewData" />
-<partial name="_AboutPartial" />
+
+@await Component.InvokeAsync("About")

@@ -15,10 +15,14 @@ namespace Fiorello_MVC.ViewComponents
             _context = context;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(int? skip = 0)
         {
+            var limit = await Helpers.Helpers.Setting(_context, "products_per_page");
+
             var products = await _context.Products
                     .Where(product => product.DeletedAt == null)
+                    .Skip((int)skip)
+                    .Take(int.Parse(limit))
                     .Include(d => d.ProductImages)
                     .Include(d => d.Category)
                     .ToListAsync();
