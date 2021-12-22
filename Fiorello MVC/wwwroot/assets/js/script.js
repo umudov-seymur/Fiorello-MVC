@@ -4,6 +4,36 @@ $(document).ready(function () {
         $(this).next().toggle();
     })
 
+    const csrfToken = $('input[name="__RequestVerificationToken"]').val();
+
+    // Cart
+    function fetchCartItems(url, productId) {
+        const data = new FormData();
+        data.append("__RequestVerificationToken", csrfToken);
+        data.append("productId", productId);
+
+        fetch(url, {
+            method: 'post',
+            body: data
+        })
+            .then(response => response.text())
+            .then(response => $(".shop-cart").html(response))
+    }
+
+    $(document).on('click', '.add-to-cart-btn', function () {
+        const productId = $(this)
+                .parents(".product-item")
+                .data("product-id");
+        fetchCartItems("/cart/AddToCart", productId);
+    });
+
+    $(document).on('click', '.cart-remove', function () {
+        const productDetails = $(this).parents(".shopping-cart-item-details");
+        const productId = productDetails.data("product-id");
+        fetchCartItems("/cart/RemoveCartItem", productId);
+    }); 
+
+    // Load more
     let loadMoreBtn = $(".load-more-products");
     let productItemsCount = +$(".product-item").length;
     let dbProductsCount = +$("#products-count").val();

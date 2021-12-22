@@ -14,4 +14,8 @@
             </a>
         </li>
     }
+
+    <li class="nav-item my-auto shop-cart">
+        @await Component.InvokeAsync("CartItemList")
+    </li>
 </ul>

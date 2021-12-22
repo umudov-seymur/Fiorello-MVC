@@ -16,6 +16,7 @@
     <partial name="_HeaderPartial" />
 
     <main role="main" class="pb-3">
+        @Html.AntiForgeryToken()
         @RenderBody()
     </main>
 
