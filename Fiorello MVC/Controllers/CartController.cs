@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Fiorello_MVC.Helpers;
 
 namespace Fiorello_MVC.Controllers
 {
@@ -20,10 +21,7 @@ namespace Fiorello_MVC.Controllers
                      ? new List<CartViewModel>()
                      : JsonConvert.DeserializeObject<List<CartViewModel>>(cartItems);
             }
-            set
-            {
-                Response.Cookies.Append("cartItems", JsonConvert.SerializeObject(value));
-            }
+            set => Response.Cookies.Append("cartItems", JsonConvert.SerializeObject(value));
         }
 
         public CartController(AppDbContext context)
@@ -31,9 +29,13 @@ namespace Fiorello_MVC.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            List<CartViewModel> cartItems = Request.Cookies["cartItems"] == null
+                ? new List<CartViewModel>()
+                : JsonConvert.DeserializeObject<List<CartViewModel>>(Request.Cookies["cartItems"]);
+            
+            return View(await CartHelper.GetCartProducts(_context, cartItems));
         }
 
         [HttpPost]

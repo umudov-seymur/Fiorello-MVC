@@ -73,8 +73,6 @@ C:\laragon\www\Fiorello MVC\Fiorello MVC\bin\Debug\netcoreapp3.1\runtimes\win-x8
 C:\laragon\www\Fiorello MVC\Fiorello MVC\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\laragon\www\Fiorello MVC\Fiorello MVC\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\laragon\www\Fiorello MVC\Fiorello MVC\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_FooterPartial.cshtml.g.cs
-C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HeaderPartial.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ProductList\default.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ProductCategoryList\default.cshtml.g.cs
@@ -173,5 +171,6 @@ C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Adm
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\TestimonialList\default.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\About\default.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Index.cshtml.g.cs
-C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CartItem\default.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CartItemList\default.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs

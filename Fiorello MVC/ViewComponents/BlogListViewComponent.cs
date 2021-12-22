@@ -8,7 +8,7 @@ namespace Fiorello_MVC.ViewComponents
 {
     public class BlogListViewComponent : ViewComponent
     {
-        public readonly AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public BlogListViewComponent(AppDbContext context)
         {

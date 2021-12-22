@@ -12,7 +12,7 @@ $(document).ready(function () {
         data.append("__RequestVerificationToken", csrfToken);
         data.append("productId", productId);
 
-        fetch(url, {
+        return fetch(url, {
             method: 'post',
             body: data
         })
@@ -27,10 +27,13 @@ $(document).ready(function () {
         fetchCartItems("/cart/AddToCart", productId);
     });
 
-    $(document).on('click', '.cart-remove', function () {
+    $(document).on('click', '.cart-remove', function (e) {
+        e.preventDefault();
         const productDetails = $(this).parents(".shopping-cart-item-details");
         const productId = productDetails.data("product-id");
-        fetchCartItems("/cart/RemoveCartItem", productId);
+        fetchCartItems("/cart/RemoveCartItem", productId).then(() => {
+            $(this).parents(".shopping-cart-item").remove();
+        });
     }); 
 
     // Load more

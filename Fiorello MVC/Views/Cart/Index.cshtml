@@ -1,4 +1,4 @@
-﻿@model List<CartViewModel>
+﻿@model List<CartProductViewModel>
 
 @{
     ViewData["Title"] = "Cart";
@@ -6,3 +6,51 @@
 }
 
 <partial name="_PageHeaderPartial" view-data="ViewData" />
+
+
+<div class="container">
+    <table class="table my-5 border shadow-sm">
+        <thead>
+            <tr>
+                <th scope="col" class="text-uppercase text-center border-top-0">Product</th>
+                <th scope="col" class="text-uppercase text-center border-top-0">Price</th>
+                <th scope="col" class="text-uppercase text-center border-top-0">Quantity</th>
+                <th scope="col" class="text-uppercase text-center border-top-0">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count < 1)
+            {
+                <tr>
+                    <td colspan="4" class="text-center">
+                        No products in the cart.
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var product in Model)
+                {
+                    <tr class="shopping-cart-item">
+                        <td class="p-3 align-middle shopping-cart-item-details" data-product-id="@product.Id">
+                            <div class="d-flex align-items-center">
+                                <a href="#" class="cart-remove">
+                                    <i class="fas fa-times text-danger"></i>
+                                </a>
+                                <div class="product-image mx-4">
+                                    <img width="80" src="/assets/img/@product.Image" alt="@product.Name">
+                                </div>
+                                <a href="#">@product.Name</a>
+                            </div>
+                        </td>
+                        <td class="p-3 align-middle text-center">
+                            <span class="price">$@product.Price</span> 
+                        </td>
+                        <td class="p-3 align-middle text-center">@product.Quantity</td>
+                        <td class="p-3 align-middle text-center">@(product.Quantity * product.Price)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
