@@ -1,3 +1,4 @@
+@model Dictionary<string, string>
 <!-- HEADER START -->
 <header>
     <div class="container">
@@ -12,7 +13,7 @@
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg d-flex d-lg-block justify-content-between d-xl-flex navbar-light py-3 py-lg-0">
                     <a class="navbar-brand" asp-action="Index" asp-controller="Home">
-                        <img src="~/assets/img/logo.png" alt="" id="logo">
+                        <img src="~/assets/img/@Model["header_logo"]" alt="" id="logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

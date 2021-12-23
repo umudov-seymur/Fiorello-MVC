@@ -17,12 +17,27 @@ namespace Fiorello_MVC.Areas.AdminArea.Controllers
             _context = context;
         }
 
-        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var categories = await _context.ProductCategories.ToListAsync();
 
             return View(categories);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(ProductCategory category)
+        {
+            if (!ModelState.IsValid) return View();
+            
+            await _context.ProductCategories.AddAsync(category);
+            await _context.SaveChangesAsync();
+            
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

@@ -4,9 +4,9 @@
     decimal totalPrice = 0;
 }
 
-<a asp-action="Index" asp-controller="Cart">
+<a asp-action="Index" asp-controller="Cart" class="cart-link">
     <i class="fas fa-shopping-bag"></i>
-    <sup class="rounded-circle">@Model.Count</sup>
+    <sup class="rounded-circle cart-items-count">@Model.Count</sup>
     <span>CART</span>
 </a>
 <ul class="list-unstyled shadow-sm shopping-cart">

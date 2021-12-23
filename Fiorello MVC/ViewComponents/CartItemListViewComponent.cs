@@ -3,10 +3,8 @@ using Fiorello_MVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Fiorello_MVC.Helpers;
-using Microsoft.EntityFrameworkCore;
 
 namespace Fiorello_MVC.ViewComponents
 {
@@ -19,12 +17,14 @@ namespace Fiorello_MVC.ViewComponents
             _context = context;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(List<CartViewModel> items = null)
         {
-            List<CartViewModel> cartItems = Request.Cookies["cartItems"] == null
-                ? new List<CartViewModel>()
-                : JsonConvert.DeserializeObject<List<CartViewModel>>(Request.Cookies["cartItems"]);
-            
+            var cartItems = items ?? (
+                Request.Cookies["cartItems"] == null
+                    ? new List<CartViewModel>()
+                    : JsonConvert.DeserializeObject<List<CartViewModel>>(Request.Cookies["cartItems"])
+            );
+
             return View(await CartHelper.GetCartProducts(_context, cartItems));
         }
     }

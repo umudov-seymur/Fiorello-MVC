@@ -31,11 +31,7 @@ namespace Fiorello_MVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<CartViewModel> cartItems = Request.Cookies["cartItems"] == null
-                ? new List<CartViewModel>()
-                : JsonConvert.DeserializeObject<List<CartViewModel>>(Request.Cookies["cartItems"]);
-            
-            return View(await CartHelper.GetCartProducts(_context, cartItems));
+            return View(await CartHelper.GetCartProducts(_context, CartItemList));
         }
 
         [HttpPost]
@@ -46,12 +42,22 @@ namespace Fiorello_MVC.Controllers
             var product = await _context.Products.FindAsync(productId);
             if (product == null) return BadRequest();
 
-            UpdateCart(product.Id);
-
-            return ViewComponent("CartItemList", CartItemList);
+            return Json(new
+            {
+                itemsCount = (await UpdateCart(product.Id)).Count
+            });
+            
+            // return ViewComponent("CartItemList", await UpdateCart(product.Id));
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult List()
+        {
+            return ViewComponent("CartItemList");
         }
 
-        private void UpdateCart(int productId)
+        private async Task<List<CartViewModel>> UpdateCart(int productId)
         {
             List<CartViewModel> cartItems = CartItemList;
             CartViewModel cartProduct = cartItems.Find(pr => pr.ProductId == productId);
@@ -70,6 +76,8 @@ namespace Fiorello_MVC.Controllers
             }
 
             CartItemList = cartItems;
+
+            return await Task.FromResult(cartItems);
         }
 
         [HttpPost]
@@ -83,7 +91,7 @@ namespace Fiorello_MVC.Controllers
 
             CartItemList = cartItems;
 
-            return ViewComponent("CartItemList", CartItemList);
+            return ViewComponent("CartItemList", cartItems);
         }
     }
 }

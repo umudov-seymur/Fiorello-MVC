@@ -1,5 +1,3 @@
-using System;
-
 namespace Fiorello_MVC.Models
 {
     public class Setting

@@ -4,8 +4,27 @@
     ViewData["title"] = "Categories";
 }
 
-@section Styles { 
-  <link rel="stylesheet" href="~/panel/vendors/datatables-bs4/css/dataTables.bootstrap4.min.css">
+@section Styles {
+    <link rel="stylesheet" href="~/panel/vendors/datatables-bs4/css/dataTables.bootstrap4.min.css">
+}
+
+@section SectionHeader {
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">@ViewData["Title"]</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <a asp-action="Create" class="btn btn-success">
+                        <i class="fas fa-plus"></i> Create New Category
+                    </a>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 }
 
 <div class="row">
@@ -14,30 +33,30 @@
             <div class="card-body">
                 <table id="categories" class="table table-bordered table-striped">
                     <thead>
-                        <tr>
-                            <th class="font-weight-bold">Id</th>
-                            <th>Category name</th>
-                            <th>Created At</th>
-                            <th class="text-center">Actions</th>
-                        </tr>
+                    <tr>
+                        <th class="font-weight-bold">Id</th>
+                        <th>Category name</th>
+                        <th>Created At</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach (var category in Model)
-                        {
-                            <tr>
-                                <td class="font-weight-bold">#@category.Id</td>
-                                <td>@category.Name</td>
-                                <td>@category.CreatedAt</td>
-                                <td class=" text-lg-center text-left min-tablet">
-                                    <a asp-controller="Category" asp-action="Update" asp-route-id="@category.Id" class="btn btn-xs btn-primary mr-1 text-uppercase">
-                                        <i class="fa fa-lg fa-fw fa-pen"></i> 
-                                    </a>
-                                    <a asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-xs btn-danger mr-1 text-uppercase">
-                                        <i class="fa fa-lg fa-fw fa-trash"></i> 
-                                    </a>
-                                </td>
-                            </tr>
-                        }
+                    @foreach (var category in Model)
+                    {
+                        <tr>
+                            <td class="font-weight-bold">#@category.Id</td>
+                            <td>@category.Name</td>
+                            <td>@category.CreatedAt</td>
+                            <td class=" text-lg-center text-left min-tablet">
+                                <a asp-controller="Category" asp-action="Update" asp-route-id="@category.Id" class="btn btn-xs btn-primary mr-1 text-uppercase">
+                                    <i class="fa fa-lg fa-fw fa-pen"></i>
+                                </a>
+                                <a asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-xs btn-danger mr-1 text-uppercase">
+                                    <i class="fa fa-lg fa-fw fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>
@@ -45,7 +64,7 @@
     </div>
 </div>
 
-@section Scripts { 
+@section Scripts {
     <!-- DataTables  & Plugins -->
     <script src="~/panel/vendors/datatables/jquery.dataTables.min.js"></script>
     <script src="~/panel/vendors/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

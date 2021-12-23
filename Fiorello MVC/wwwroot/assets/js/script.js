@@ -7,7 +7,9 @@ $(document).ready(function () {
     const csrfToken = $('input[name="__RequestVerificationToken"]').val();
 
     // Cart
-    function fetchCartItems(url, productId) {
+    const shopCart = $(".shop-cart");
+
+    function requestCartAction(url, productId) {
         const data = new FormData();
         data.append("__RequestVerificationToken", csrfToken);
         data.append("productId", productId);
@@ -15,26 +17,39 @@ $(document).ready(function () {
         return fetch(url, {
             method: 'post',
             body: data
-        })
-            .then(response => response.text())
-            .then(response => $(".shop-cart").html(response))
+        });
     }
+
+    $(document).on('mouseenter', ".shop-cart .cart-link", function (e) {
+        requestCartAction("/cart/List")
+            .then(response => response.text())
+            .then(response => shopCart.html(response));
+    });
 
     $(document).on('click', '.add-to-cart-btn', function () {
         const productId = $(this)
-                .parents(".product-item")
-                .data("product-id");
-        fetchCartItems("/cart/AddToCart", productId);
+            .parents(".product-item")
+            .data("product-id");
+
+        requestCartAction("/cart/AddToCart", productId)
+            .then(response => response.json())
+            .then(response => {
+                $(".cart-items-count").text(response.itemsCount);
+            });
     });
 
     $(document).on('click', '.cart-remove', function (e) {
         e.preventDefault();
         const productDetails = $(this).parents(".shopping-cart-item-details");
         const productId = productDetails.data("product-id");
-        fetchCartItems("/cart/RemoveCartItem", productId).then(() => {
-            $(this).parents(".shopping-cart-item").remove();
-        });
-    }); 
+
+        requestCartAction("/cart/RemoveCartItem", productId)
+            .then(response => response.text())
+            .then((response) => {
+                shopCart.html(response);
+                $(this).parents(".shopping-cart-item").remove();
+            });
+    });
 
     // Load more
     let loadMoreBtn = $(".load-more-products");
@@ -74,8 +89,7 @@ $(document).ready(function () {
     $(document).on('click', '.mobile-navbar ul li a', function () {
         if ($(this).children('i').hasClass('fa-caret-right')) {
             $(this).children('i').removeClass('fa-caret-right').addClass('fa-sort-down')
-        }
-        else {
+        } else {
             $(this).children('i').removeClass('fa-sort-down').addClass('fa-caret-right')
         }
         $(this).parent().next().slideToggle();
@@ -108,8 +122,7 @@ $(document).ready(function () {
         products.each(function () {
             if (category == $(this).attr('data-id')) {
                 $(this).parent().fadeIn();
-            }
-            else {
+            } else {
                 $(this).parent().hide();
             }
         })

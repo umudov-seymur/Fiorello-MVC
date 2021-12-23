@@ -174,3 +174,5 @@ C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Car
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CartItemList\default.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Create.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\_FormPartial.cshtml.g.cs

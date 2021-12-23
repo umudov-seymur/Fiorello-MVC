@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Fiorello_MVC.ViewModels
+﻿namespace Fiorello_MVC.ViewModels
 {
     public class CartViewModel
     {

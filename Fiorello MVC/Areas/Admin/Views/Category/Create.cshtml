@@ -1,15 +1,14 @@
-﻿@model ProductCategory
 @{
-    ViewData["title"] = $"{Model.Name} - Edit";
+    ViewBag.Title = "Add New Category";
 }
 
 <div class="row">
     <div class="col-12">
       <div class="card card-primary mt-4">
             <div class="card-header">
-                <h3 class="card-title">@Model.Name - Edit</h3>
+                <h3 class="card-title">@ViewBag.Title</h3>
             </div>
-            <form asp-action="Update" method="post">
+            <form asp-action="Create" method="post">
                 <partial name="_FormPartial"></partial>
             </form>
         </div>
