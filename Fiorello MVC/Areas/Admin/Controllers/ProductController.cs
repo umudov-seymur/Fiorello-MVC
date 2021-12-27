@@ -9,19 +9,21 @@ using System.Linq;
 namespace Fiorello_MVC.Areas.AdminArea.Controllers
 {
     [Area("Admin")]
-    [Route("{area:exists}/Categories/{action=Index}/{id:int?}")]
-    public class CategoryController : Controller
+    [Route("{area:exists}/Products/{action=Index}/{id:int?}")]
+    public class ProductController : Controller
     {
         private readonly AppDbContext _context;
 
-        public CategoryController(AppDbContext context)
+        public ProductController(AppDbContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ProductCategories.ToListAsync());
+            var categories = await _context.ProductCategories.ToListAsync();
+
+            return View(categories);
         }
 
         public IActionResult Create()

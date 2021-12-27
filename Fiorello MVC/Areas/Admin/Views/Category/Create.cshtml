@@ -2,12 +2,23 @@
     ViewBag.Title = "Add New Category";
 }
 
+@section SectionHeader {
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">@ViewData["Title"]</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+}
+
 <div class="row">
     <div class="col-12">
-      <div class="card card-primary mt-4">
-            <div class="card-header">
-                <h3 class="card-title">@ViewBag.Title</h3>
-            </div>
+      <div class="card card-primary card-outline">
             <form asp-action="Create" method="post">
                 <partial name="_FormPartial"></partial>
             </form>

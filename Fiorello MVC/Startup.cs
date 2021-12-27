@@ -50,10 +50,6 @@ namespace Fiorello_MVC
                   name: "areas",
                   pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
                 );
-            });
-
-            app.UseEndpoints(endpoints =>
-            {
                 endpoints.MapDefaultControllerRoute();
             });
         }

@@ -1,0 +1,26 @@
+@using Microsoft.AspNetCore.Routing
+@model List<MenuItem>
+
+@{
+    var currentController = ViewContext.RouteData.Values["controller"].ToString();
+}
+
+<!-- Sidebar Menu -->
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        @foreach (var menu in Model)
+        {
+            <li class="nav-item">
+                <a asp-controller="@menu.Controller"
+                   asp-action="@menu.Action"
+                   class="nav-link @(currentController == menu.Controller ? "active" : String.Empty)">
+                    <i class="navnav-icon @menu.Icon"></i>
+                    <p>
+                        @menu.Name
+                    </p>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
+<!-- /.sidebar-menu -->

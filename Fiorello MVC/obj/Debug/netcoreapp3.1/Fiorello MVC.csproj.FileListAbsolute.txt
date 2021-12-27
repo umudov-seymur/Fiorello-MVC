@@ -162,7 +162,6 @@ C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Adm
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
-C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_SidebarMenuPartial.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_FooterPartial.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_HeaderPartial.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_NavbarPartial.cshtml.g.cs
@@ -176,3 +175,5 @@ C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Sha
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Create.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\_FormPartial.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\Components\Sidebar\Default.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_CrudScriptsPartial.cshtml.g.cs

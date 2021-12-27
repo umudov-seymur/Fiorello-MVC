@@ -2,14 +2,14 @@
 
 <div class="card-body">
     <div class="form-group">
-        <label for="Name"></label>
+        <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" placeholder="Enter category name ...">
-        <span class="text-danger" asp-validation-for="Name"></span>
+        <span class="text-danger d-block font-weight-bold mt-2" asp-validation-for="Name"></span>
     </div>
 </div>
 
 <div class="card-footer">
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-success">
         <i class="fas fa-save"></i> Save
     </button>
 </div>

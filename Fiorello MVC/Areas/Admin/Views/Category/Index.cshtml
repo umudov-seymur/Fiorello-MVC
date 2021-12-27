@@ -31,29 +31,56 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <table id="categories" class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped" data-table>
                     <thead>
-                    <tr>
-                        <th class="font-weight-bold">Id</th>
-                        <th>Category name</th>
-                        <th>Created At</th>
-                        <th class="text-center">Actions</th>
-                    </tr>
+                        <tr>
+                            <th class="font-weight-bold">Id</th>
+                            <th>Category name</th>
+                            <th>Category Status</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                     @foreach (var category in Model)
                     {
-                        <tr>
+                        <tr class="text-center">
                             <td class="font-weight-bold">#@category.Id</td>
                             <td>@category.Name</td>
+                            <td>
+                                @if (category.DeletedAt == null)
+                                {
+                                    <span class="badge badge-success shadow-sm p-2">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger shadow-sm p-2">Deleted</span>
+                                }
+                            </td>
                             <td>@category.CreatedAt</td>
-                            <td class=" text-lg-center text-left min-tablet">
-                                <a asp-controller="Category" asp-action="Update" asp-route-id="@category.Id" class="btn btn-xs btn-primary mr-1 text-uppercase">
-                                    <i class="fa fa-lg fa-fw fa-pen"></i>
+                            <td class="text-lg-center text-left min-tablet" style="width: 180px;">
+                                <a class="btn btn-info btn-sm shadow-sm" asp-action="Update" asp-route-id="@category.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
                                 </a>
-                                <a asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-xs btn-danger mr-1 text-uppercase">
-                                    <i class="fa fa-lg fa-fw fa-trash"></i>
-                                </a>
+                                @if (category.DeletedAt == null)
+                                {
+                                    <a class="btn btn-danger btn-sm shadow ml-1" data-action="delete" asp-action="Delete" asp-route-id="@category.Id">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Delete
+                                    </a>
+                                }
+                                else
+                                {
+                                    <form class="d-inline" asp-action="Restore" asp-route-id="@category.Id" method="post">
+                                        <button type="submit" class="btn btn-primary btn-sm shadow ml-1" data-toggle="tooltip" data-placement="top" title="Deleted date: @category.DeletedAt">
+                                            <i class="fas fa-trash-restore"></i>
+                                            Restore
+                                        </button>
+                                    </form>
+                                }
                             </td>
                         </tr>
                     }
@@ -69,18 +96,6 @@
     <script src="~/panel/vendors/datatables/jquery.dataTables.min.js"></script>
     <script src="~/panel/vendors/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/panel/vendors/datatables-responsive/js/dataTables.responsive.min.js"></script>
-
-    <script>
-        $(function () {
-            $('#categories').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
-        });
-    </script>
+    
+    <partial name="_CrudScriptsPartial" />
 }

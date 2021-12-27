@@ -1,0 +1,57 @@
+  <script>
+        $(function () {
+            const csrfToken = $('input[name="__RequestVerificationToken"]').val();
+            
+            let data = new FormData();
+            data.append("__RequestVerificationToken", csrfToken);
+                    
+            // delete opereation
+            $('[data-action="delete"]').on("click", function (e) {
+                e.preventDefault();
+                let $this = $(this);
+           
+                Swal.fire({
+                  title: 'Are you sure?',
+                  text: "",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                     let deleteUrl = $this.attr("href");
+                     
+                     $this.attr('disabled', 'disabled');
+                      
+                     fetch(deleteUrl, {
+                         method: "delete",
+                         body: data
+                     }).then(response => {
+                        Swal.fire(
+                          'Deleted!',
+                          'Your data has been deleted.',
+                          'success'
+                        )
+                        
+                      setTimeout(function () {
+                            window.location.reload();
+                      }, 1200);
+                        
+                     });
+                  }
+                })
+            })
+            
+            $('[data-table]').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+}
