@@ -9,58 +9,58 @@ namespace Fiorello_MVC.Areas.Admin.ViewComponents
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var menus = new List<MenuItem>
+            var menus = new List<MenuViewModel>
             {
-                new MenuItem
+                new MenuViewModel
                 {
                     Name = "Dashboard",
                     Icon = "fas fa-tachometer-alt",
                     Controller = "Dashboard",
                     Action = "Index"
                 },
-                new MenuItem
+                new MenuViewModel
                 {
                     Name = "Sliders",
                     Icon = "fas fa-layer-group",
-                    Controller = "",
+                    Controller = "Slider",
                     Action = "Index"
                 },
-                new MenuItem
+                new MenuViewModel
                 {
                     Name = "Categories",
                     Icon = "fas fa-bars",
                     Controller = "Category",
                     Action = "Index"
                 },
-                new MenuItem
+                new MenuViewModel
                 {
                     Name = "Products",
                     Icon = "fas fa-layer-group",
                     Controller = "Product",
                     Action = "Index"
                 },
-                new MenuItem
+                new MenuViewModel
                 {
                     Name = "Products",
                     Icon = "fas fa-shopping-cart",
                     Controller = "Product",
                     Action = "Index"
                 },
-                new MenuItem
+                new MenuViewModel
                 {
                     Name = "Experts",
                     Icon = "fas fa-users",
                     Controller = "Expert",
                     Action = "Index"
                 },
-                new MenuItem
+                new MenuViewModel
                 {
                     Name = "Testimonials",
                     Icon = "fas fa-comment-dots",
                     Controller = "Testimonial",
                     Action = "Index"
                 },
-                new MenuItem
+                new MenuViewModel
                 {
                     Name = "Settings",
                     Icon = "fas fa-fw fa-cog",

@@ -1,6 +1,6 @@
 namespace Fiorello_MVC.Areas.Admin.Models
 {
-    public class MenuItem
+    public class MenuViewModel
     {
         public string Name { get; set; }
         public string Controller { get; set; }

@@ -1,0 +1,80 @@
+﻿@model List<Slider>
+
+@{
+    ViewData["title"] = "Sliders";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/panel/vendors/datatables-bs4/css/dataTables.bootstrap4.min.css">
+}
+
+@section SectionHeader {
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">@ViewData["Title"]</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <a asp-action="Create" class="btn btn-success">
+                        <i class="fas fa-plus"></i> Create New Slider
+                    </a>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-striped" data-table>
+                    <thead>
+                        <tr>
+                            <th class="font-weight-bold">Id</th>
+                            <th>Slider Image</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var slider in Model)
+                    {
+                        <tr class="text-center">
+                            <td class="font-weight-bold">#@slider.Id</td>
+                            <td>
+                                <img src="~/assets/img/@slider.Image" class="border" style="width: 80px; height: 80px; object-fit: cover;" alt="">
+                            </td>
+                            <td>@slider.CreatedAt</td>
+                            <td class="text-lg-center text-left min-tablet" style="width: 180px;">
+                                <a class="btn btn-info btn-sm shadow-sm" asp-action="Update" asp-route-id="@slider.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                 <a class="btn btn-danger btn-sm shadow ml-1" data-action="delete" asp-action="Delete" asp-route-id="@slider.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                 </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- DataTables  & Plugins -->
+    <script src="~/panel/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/panel/vendors/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/panel/vendors/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    
+    <partial name="_CrudScriptsPartial" />
+}

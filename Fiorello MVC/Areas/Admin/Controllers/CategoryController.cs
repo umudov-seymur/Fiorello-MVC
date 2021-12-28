@@ -30,6 +30,7 @@ namespace Fiorello_MVC.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductCategory category)
         {
             if (!ModelState.IsValid) return View();
@@ -63,6 +64,7 @@ namespace Fiorello_MVC.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, ProductCategory category)
         {
             var dbCategory = await GetCategoryById(id);

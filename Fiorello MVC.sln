@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiorello MVC", "Fiorello MVC\Fiorello MVC.csproj", "{FB274809-1EEE-4743-A8F6-92E2A5705CC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{E5606764-6E55-4816-8BF7-EA08EA4E1B1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FB274809-1EEE-4743-A8F6-92E2A5705CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB274809-1EEE-4743-A8F6-92E2A5705CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB274809-1EEE-4743-A8F6-92E2A5705CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5606764-6E55-4816-8BF7-EA08EA4E1B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5606764-6E55-4816-8BF7-EA08EA4E1B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5606764-6E55-4816-8BF7-EA08EA4E1B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5606764-6E55-4816-8BF7-EA08EA4E1B1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

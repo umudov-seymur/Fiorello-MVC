@@ -1,0 +1,28 @@
+@model SliderViewModel
+
+@{
+    var currentPhotoAttr = Model?.CurrentPhoto == null
+        ? "data-default-file='/assets/img/@Model?.CurrentPhoto'"
+        : "";
+}
+
+<div class="card-body">
+    <div class="form-row">
+        <div class="col-md-5">
+             <label asp-for="Photo"></label>
+            <input asp-for="Photo" 
+                   class="form-control dropify" 
+                   accept="image/*" />
+             <span class="text-danger d-block font-weight-bold mt-2" asp-validation-for="Photo"></span>
+        </div>
+    </div>
+</div>
+
+<div class="card-footer">
+    <a asp-action="Index" class="btn btn-danger mr-1">
+        <i class="fas fa-times mr-1"></i> Cancel
+    </a>
+    <button type="submit" class="btn btn-success">
+        <i class="fas fa-save"></i> Save
+    </button>
+</div>

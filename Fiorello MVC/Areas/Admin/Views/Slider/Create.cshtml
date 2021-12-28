@@ -1,0 +1,42 @@
+@{
+    ViewBag.Title = "Add New Slider";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+}
+
+@section SectionHeader {
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">@ViewData["Title"]</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card card-primary card-outline">
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <partial name="_FormPartial"></partial>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+    <script>
+       $(function(){ 
+           $('.dropify').dropify({ 
+                messages: { 'default': '', 'replace': '' } 
+           });
+       });
+    </script>
+}
