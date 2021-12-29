@@ -174,8 +174,8 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
 
             if (slidersCount >= allowedSliderCount)
             {
-                TempData["flashMessageTitle"] = $"Number of sliders allowed {allowedSliderCount}";
-                TempData["flashMessageIcon"] = "warning";
+                TempData["flashMessageTitle"] = $"You have exceeded the number of files allowed.";
+                TempData["flashMessageIcon"] = "danger";
                 return true;
             }
 

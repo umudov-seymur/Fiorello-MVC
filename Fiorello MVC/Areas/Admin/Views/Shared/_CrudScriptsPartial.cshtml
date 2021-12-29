@@ -2,8 +2,20 @@
         $(function () {
             const csrfToken = $('input[name="__RequestVerificationToken"]').val();
             
+            let dataTable =  $('[data-table]').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+            
+            
             let data = new FormData();
             data.append("__RequestVerificationToken", csrfToken);
+            
                     
             // delete opereation
             $('[data-action="delete"]').on("click", function (e) {
@@ -34,23 +46,13 @@
                           'success'
                         )
                         
-                      setTimeout(function () {
-                            window.location.reload();
-                      }, 1200);
-                        
+                        dataTable
+                            .row( $this.parents('tr') )
+                            .remove()
+                            .draw();
                      });
                   }
                 })
-            })
-            
-            $('[data-table]').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
             });
         });
     </script>
