@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Fiorello_MVC.Areas.AdminArea.Controllers
+namespace Fiorello_MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class DashboardController : Controller

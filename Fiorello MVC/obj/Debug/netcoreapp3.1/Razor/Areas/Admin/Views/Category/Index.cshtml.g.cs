@@ -21,20 +21,13 @@ using Fiorello_MVC.Models;
 #nullable disable
 #nullable restore
 #line 2 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\_ViewImports.cshtml"
-using Fiorello_MVC.Areas.Admin.Models;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\_ViewImports.cshtml"
 using Fiorello_MVC.Areas.Admin.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2caa0e00a4dd12346f010ef850d5a876f7107caa", @"/Areas/Admin/Views/Category/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a19d334c4cd856de4d9bf1eecbf4a1fa9af993df", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cc00b47ee16bd0252c4e5c21acca9b499e8fe193", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Category_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<ProductCategory>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -93,7 +86,7 @@ using Fiorello_MVC.Areas.Admin.ViewModels;
             WriteLiteral("\r\n");
             DefineSection("Styles", async() => {
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "2caa0e00a4dd12346f010ef850d5a876f7107caa9853", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "2caa0e00a4dd12346f010ef850d5a876f7107caa9654", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -121,7 +114,7 @@ using Fiorello_MVC.Areas.Admin.ViewModels;
 #line hidden
 #nullable disable
                 WriteLiteral("</h1>\r\n                </div><!-- /.col -->\r\n                <div class=\"col-sm-6 d-flex justify-content-end\">\r\n                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa11833", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa11634", async() => {
                     WriteLiteral("\r\n                        <i class=\"fas fa-plus\"></i> Create New Category\r\n                    ");
                 }
                 );
@@ -217,7 +210,7 @@ using Fiorello_MVC.Areas.Admin.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                            <td class=\"text-lg-center text-left min-tablet\" style=\"width: 180px;\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa16553", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa16354", async() => {
                 WriteLiteral("\r\n                                    <i class=\"fas fa-pencil-alt\">\r\n                                    </i>\r\n                                    Edit\r\n                                ");
             }
             );
@@ -258,7 +251,7 @@ using Fiorello_MVC.Areas.Admin.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa19366", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa19167", async() => {
                 WriteLiteral("\r\n                                        <i class=\"fas fa-trash\">\r\n                                        </i>\r\n                                        Delete\r\n                                    ");
             }
             );
@@ -301,7 +294,7 @@ using Fiorello_MVC.Areas.Admin.ViewModels;
 #line hidden
 #nullable disable
             WriteLiteral("                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa22311", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa22112", async() => {
                 WriteLiteral("\r\n                                        <button type=\"submit\" class=\"btn btn-primary btn-sm shadow ml-1\" data-toggle=\"tooltip\" data-placement=\"top\"");
                 BeginWriteAttribute("title", " title=\"", 3603, "\"", 3644, 3);
                 WriteAttributeValue("", 3611, "Deleted", 3611, 7, true);
@@ -367,7 +360,7 @@ WriteAttributeValue(" ", 3624, category.DeletedAt, 3625, 19, false);
             WriteLiteral("                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n");
             DefineSection("Scripts", async() => {
                 WriteLiteral("\r\n    <!-- DataTables  & Plugins -->\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa26765", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa26566", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -381,7 +374,7 @@ WriteAttributeValue(" ", 3624, category.DeletedAt, 3625, 19, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa27866", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa27667", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -395,7 +388,7 @@ WriteAttributeValue(" ", 3624, category.DeletedAt, 3625, 19, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa28967", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2caa0e00a4dd12346f010ef850d5a876f7107caa28768", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -409,7 +402,7 @@ WriteAttributeValue(" ", 3624, category.DeletedAt, 3625, 19, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    \r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2caa0e00a4dd12346f010ef850d5a876f7107caa30076", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2caa0e00a4dd12346f010ef850d5a876f7107caa29877", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

@@ -1,4 +1,4 @@
-namespace Fiorello_MVC.Areas.Admin.Models
+namespace Fiorello_MVC.Areas.Admin.ViewModels
 {
     public class MenuViewModel
     {

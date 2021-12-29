@@ -1,9 +1,14 @@
+@model SliderViewModel
 @{
     ViewBag.Title = "Add New Slider";
 }
 
 @section Styles {
     <link rel="stylesheet" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+        type="text/css"/>
 }
 
 @section SectionHeader {
@@ -14,6 +19,11 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">@ViewData["Title"]</h1>
                 </div><!-- /.col -->
+                  <div class="col-sm-6 d-flex justify-content-end">
+                      <a asp-action="Index" class="btn btn-danger">
+                          <i class="fas fa-times"></i> Cancel
+                      </a>
+                  </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -23,16 +33,53 @@
 <div class="row">
     <div class="col-12">
         <div class="card card-primary card-outline">
-            <form asp-action="Create" method="post" enctype="multipart/form-data">
-                <partial name="_FormPartial"></partial>
-            </form>
+            @* <form asp-action="Create" method="post" enctype="multipart/form-data"> *@
+            @*     <partial name="_FormPartial"></partial> *@
+            @* </form> *@
+            <div id="dropzone">
+                <form class="dropzone needsclick" asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div class="dz-message needsclick">
+                        Drop slider photos here or click to upload.<br>
+                        Remaining allowed photos count: <strong>@ViewBag.RemainingSliderCount</strong>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 @section Scripts {
     <script src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script>
+      const dropzone = new Dropzone(".dropzone", { 
+            acceptedFiles: "image/*",
+            uploadMultiple: true,
+            parallelUploads: 100,
+            paramName: () => "photos",
+            maxFiles: @ViewBag.RemainingSliderCount,
+            maxFilesize: 200,
+            init: function() {
+                this.on("success", function(file, response) {
+                    if (response.success == false) {
+                          $(file.previewElement)
+                            .addClass("dz-error")
+                            .find('.dz-error-message')
+                            .text(response.errorMessage);
+                    }
+                })
+            }
+       });
+
+       // dropzone.on("addedfile", function (file) {
+       //     let maxFiles = 5;
+       //     for (let i = dropzone.files.length - maxFiles - 1; i >= 0; i--) {
+       //         let f = dropzone.files[i];
+       //         if (f.upload.uuid !== file.upload.uuid)
+       //             dropzone.removeFile(f);
+       //     }
+       // });
+        
        $(function(){ 
            $('.dropify').dropify({ 
                 messages: { 'default': '', 'replace': '' } 

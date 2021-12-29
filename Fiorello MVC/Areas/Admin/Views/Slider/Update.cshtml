@@ -24,8 +24,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card card-primary card-outline">
-            <form asp-action="Update" method="post">
-                <input type="hidden" asp-for="CurrentPhoto">
+            <form asp-action="Update" method="post" enctype="multipart/form-data">
                 <partial name="_FormPartial"></partial>
             </form>
         </div>

@@ -1,8 +1,8 @@
 using System.IO;
 
-namespace Utilities.File.Helpers
+namespace Utilities.Helpers
 {
-    public static class FileHelpers
+    public static class FileHelper
     {
         public static void RemoveFile(string rootPath, string file)
         {

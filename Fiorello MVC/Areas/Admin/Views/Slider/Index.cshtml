@@ -16,11 +16,14 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">@ViewData["Title"]</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6 d-flex justify-content-end">
-                    <a asp-action="Create" class="btn btn-success">
-                        <i class="fas fa-plus"></i> Create New Slider
-                    </a>
-                </div><!-- /.col -->
+              @if (Model.Count() < ViewBag.AllowedSliderCount)
+              {
+                  <div class="col-sm-6 d-flex justify-content-end">
+                      <a asp-action="Create" class="btn btn-success">
+                          <i class="fas fa-plus"></i> Create New Slider
+                      </a>
+                  </div><!-- /.col -->
+              }
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>

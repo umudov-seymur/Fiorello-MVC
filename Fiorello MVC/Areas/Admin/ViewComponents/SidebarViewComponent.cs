@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Fiorello_MVC.Areas.Admin.Models;
+using Fiorello_MVC.Areas.Admin.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fiorello_MVC.Areas.Admin.ViewComponents

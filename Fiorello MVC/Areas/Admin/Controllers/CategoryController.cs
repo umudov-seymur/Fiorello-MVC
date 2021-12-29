@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Fiorello_MVC.DAL;
 using Fiorello_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
-namespace Fiorello_MVC.Areas.AdminArea.Controllers
+namespace Fiorello_MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("{area:exists}/Categories/{action=Index}/{id:int?}")]

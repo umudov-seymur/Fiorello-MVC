@@ -1,10 +1,10 @@
-﻿namespace QuickType
-{
-    using System;
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
+﻿using System;
+using System.Globalization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
+namespace Fiorello_MVC.Models
+{
     public partial class Temperatures
     {
         [JsonProperty("seo_category_infos")]
