@@ -21,7 +21,9 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ProductCategories.ToListAsync());
+            return View(await _context.ProductCategories
+                .Where(cat => cat.DeletedAt == null)
+                .ToListAsync());
         }
 
         public IActionResult Create()
@@ -68,9 +70,8 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int id, ProductCategory category)
         {
             var dbCategory = await GetCategoryById(id);
-
-            if (!ModelState.IsValid) return View(dbCategory);
             if (dbCategory == null) return BadRequest();
+            if (!ModelState.IsValid) return View(dbCategory);
             if (category.Name.ToLower().Trim() != dbCategory.Name.ToLower().Trim())
             {
                 var isExistCategory = await _context.ProductCategories
@@ -115,18 +116,18 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
                 });
         }
         
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Restore(int id)
-        {
-            var dbCategory = await GetCategoryById(id);
-            dbCategory.DeletedAt = null;
-
-            await _context.SaveChangesAsync();
-            
-            TempData["flashMessageTitle"] = $"{dbCategory.Name} restored successfull.";
-
-            return RedirectToAction("Index");
-        }
+        // [HttpPost]
+        // [ValidateAntiForgeryToken]
+        // public async Task<IActionResult> Restore(int id)
+        // {
+        //     var dbCategory = await GetCategoryById(id);
+        //     dbCategory.DeletedAt = null;
+        //
+        //     await _context.SaveChangesAsync();
+        //     
+        //     TempData["flashMessageTitle"] = $"{dbCategory.Name} restored successfull.";
+        //
+        //     return RedirectToAction("Index");
+        // }
     }
 }

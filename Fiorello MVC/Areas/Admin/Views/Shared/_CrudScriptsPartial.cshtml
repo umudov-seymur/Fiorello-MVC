@@ -6,19 +6,17 @@
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
-                "ordering": true,
+                "order": [[ 2, "desc" ]],
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
             });
             
-            
             let data = new FormData();
             data.append("__RequestVerificationToken", csrfToken);
             
-                    
             // delete opereation
-            $('[data-action="delete"]').on("click", function (e) {
+            $(document).on("click", '[data-action="delete"]', function (e){
                 e.preventDefault();
                 let $this = $(this);
            
@@ -50,10 +48,11 @@
                             .row( $this.parents('tr') )
                             .remove()
                             .draw();
+                       
+                        $this.parents('tr').remove();
                      });
                   }
                 })
             });
         });
-    </script>
-}
+</script>

@@ -18,7 +18,7 @@
                 </div><!-- /.col -->
               @if (Model.Count() < ViewBag.AllowedSliderCount)
               {
-                  <div class="col-sm-6 d-flex justify-content-end">
+                  <div class="col-sm-6 d-flex justify-content-end @(Model.Count() < ViewBag.AllowedSliderCount ? "d-none" : String.Empty)">
                       <a asp-action="Create" class="btn btn-success">
                           <i class="fas fa-plus"></i> Create New Slider
                       </a>

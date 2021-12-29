@@ -41,13 +41,6 @@ namespace Fiorello_MVC.Areas.Admin.ViewComponents
                 },
                 new MenuViewModel
                 {
-                    Name = "Products",
-                    Icon = "fas fa-shopping-cart",
-                    Controller = "Product",
-                    Action = "Index"
-                },
-                new MenuViewModel
-                {
                     Name = "Experts",
                     Icon = "fas fa-users",
                     Controller = "Expert",

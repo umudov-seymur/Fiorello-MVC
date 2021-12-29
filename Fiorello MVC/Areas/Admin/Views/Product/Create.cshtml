@@ -1,0 +1,72 @@
+@{
+    ViewBag.Title = "Add New Product";
+}
+
+@section SectionHeader {
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">@ViewData["Title"]</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+}
+
+@section Styles {
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+        type="text/css"/>
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card card-outline">
+           <form class="dropzone needsclick" asp-action="Create" method="post" enctype="multipart/form-data">
+                <div class="dz-message needsclick">
+                    Drop slider photos here or click to upload.<br>
+                </div>
+            </form>
+            
+            <form asp-action="Create" method="post">
+                <partial name="_FormPartial"></partial>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script>
+     const dropzone = new Dropzone(".dropzone", {
+            acceptedFiles: "image/*",
+            uploadMultiple: true,
+            autoProcessQueue: false, 
+            preventDuplicates: true,
+            paramName: () => "photos",
+            maxFilesize: 200,
+            init: function() {
+                this.on("success", function(file, response) {
+                    if (response.success == false) {
+                          $(file.previewElement)
+                            .addClass("dz-error")
+                            .find('.dz-error-message')
+                            .text(response.errorMessage);
+                    }
+                })
+            }
+       });
+     
+      // $(function(){
+      //      $(".save-product").on("click", function (e) {
+      //          e.preventDefault();
+      //          dropzone.processQueue();
+      //      })
+      // });
+    </script>
+}

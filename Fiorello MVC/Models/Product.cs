@@ -12,6 +12,7 @@ namespace Fiorello_MVC.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }

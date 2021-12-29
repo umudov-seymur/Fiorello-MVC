@@ -5,13 +5,13 @@
     var productImage = product.ProductImages
             .Where(image => image.IsMain)
             .FirstOrDefault()
-            .Image;
+            ?.Image;
 
     <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
         <div class="product-item text-center" data-id="@Helpers.CategorySlug(product.Category.Name, product.Category.Id)" data-product-id="@product.Id">
             <div class="img">
                 <a href="#">
-                    <img src="~/assets/img/@productImage" class="img-fluid" alt="">
+                    <img src="~/assets/img/@(productImage ?? "no-photo.jpg")" class="img-fluid" alt="">
                 </a>
             </div>
             <div class="title mt-3">

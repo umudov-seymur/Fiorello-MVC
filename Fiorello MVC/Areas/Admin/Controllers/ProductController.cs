@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Fiorello_MVC.Areas.Admin.ViewModels.ProductViewModel;
 using Fiorello_MVC.DAL;
+using Fiorello_MVC.Filter;
 using Fiorello_MVC.Models;
+using Fiorello_MVC.Wrappers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fiorello_MVC.Areas.Admin.Controllers
@@ -19,38 +24,37 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(PaginationFilter filter)
         {
-            var categories = await _context.ProductCategories.ToListAsync();
+            var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+            var pagedData = await GetProductVmListAsync(validFilter.PageNumber, validFilter.PageSize);
 
-            return View(categories);
+            var totalRecords = await _context.Products
+                    .Where(pr => pr.DeletedAt == null)
+                    .CountAsync();
+            
+            return View(new PagedResponse<ProductCrudViewModel>(pagedData, validFilter.PageNumber, validFilter.PageSize, totalRecords));
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            await GetActiveCategories();
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProductCategory category)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Product product)
         {
+            await GetActiveCategories();
             if (!ModelState.IsValid) return View();
 
-            var isExistCategory = await _context.ProductCategories
-                .AnyAsync(cat => cat.Name.ToLower().Trim() == category.Name.ToLower().Trim());
+            product.CreatedAt = DateTime.Now;
 
-            if (isExistCategory)
-            {
-                ModelState.AddModelError("Name", "This category name is already exist.");
-                return View(category);
-            }
-            
-            category.CreatedAt = DateTime.Now;
-
-            await _context.ProductCategories.AddAsync(category);
+            await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
 
-            TempData["flashMessageTitle"] = "Category successfull created.";
+            TempData["flashMessageTitle"] = "Product successfull created.";
 
             return RedirectToAction("Index");
         }
@@ -58,75 +62,92 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int? id)
         {
             if (id == null) return NotFound();
-            var dbCategory = await GetCategoryById((int)id);
-            if (dbCategory == null) return BadRequest();
+            var dbProduct = await GetProductById((int) id);
+            if (dbProduct == null) return BadRequest();
+            
+            await GetActiveCategories();
 
-            return View(dbCategory);
+            return View(dbProduct);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(int id, ProductCategory category)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int? id, ProductCrudViewModel product)
         {
-            var dbCategory = await GetCategoryById(id);
+            if (id == null) return NotFound();
+            var dbProduct = await GetProductById((int) id);
+            if (dbProduct == null) return BadRequest();
+            if (!ModelState.IsValid) return View(dbProduct);
 
-            if (!ModelState.IsValid) return View(dbCategory);
-            if (dbCategory == null) return BadRequest();
-            if (category.Name.ToLower().Trim() != dbCategory.Name.ToLower().Trim())
-            {
-                var isExistCategory = await _context.ProductCategories
-                    .AnyAsync(cat => cat.Name.ToLower().Trim() == category.Name.ToLower().Trim());
-
-                if (isExistCategory)
-                {
-                    ModelState.AddModelError("Name", "This category name is already exist.");
-                    return View(dbCategory);
-                }
-            }
-
-            dbCategory.Name = category.Name.Trim();
+            dbProduct.Id = product.Id;
+            dbProduct.CategoryId = product.CategoryId;
+            dbProduct.Name = product.Name;
+            dbProduct.Price = product.Price;
+            dbProduct.CreatedAt = product.CreatedAt;
 
             await _context.SaveChangesAsync();
 
-            TempData["flashMessageTitle"] = "Category updated successfull.";
+            TempData["flashMessageTitle"] = "Product updated successfull.";
 
             return RedirectToAction("Index");
         }
 
-        private async Task<ProductCategory> GetCategoryById(int id)
+        private async Task<Product> GetProductById(int id)
         {
-            return await _context.ProductCategories
-                .Where(cat => cat.Id == id)
-                .FirstOrDefaultAsync();
+            return await _context.Products.FindAsync(id);
         }
 
         [HttpDelete]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            var dbCategory = await GetCategoryById(id);
-            dbCategory.DeletedAt = DateTime.Now;
-
+            (await GetProductById(id)).DeletedAt = DateTime.Now;
             await _context.SaveChangesAsync();
 
-            return Json(
-                new
-                {
-                    success = true
-                });
+            return Json(new
+            {
+                success = true
+            });
         }
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Restore(int id)
+
+        private async Task<List<ProductCrudViewModel>> GetProductVmListAsync(int pageNumber = 1, int pageSize = 10)
         {
-            var dbCategory = await GetCategoryById(id);
-            dbCategory.DeletedAt = null;
+            var productList = new List<ProductCrudViewModel>();
+            var products = await _context.Products
+                .Include(pr => pr.Category)
+                .Include(pr => pr.ProductImages)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Where(pr => pr.DeletedAt == null)
+                .OrderByDescending(pr => pr.Id)
+                .ToListAsync(); 
 
-            await _context.SaveChangesAsync();
-            
-            TempData["flashMessageTitle"] = $"{dbCategory.Name} restored successfull.";
+            foreach (var product in products)
+            {
+                var productVm = new ProductCrudViewModel
+                {
+                    Id = product.Id,
+                    CategoryId = product.CategoryId,
+                    Name = product.Name,
+                    Price = product.Price,
+                    CategoryName = product.Category.Name,
+                    CreatedAt = product.CreatedAt,
+                    MainPhoto = product.ProductImages
+                        .Where(img => img.IsMain == true)
+                        .FirstOrDefault()
+                        ?.Image
+                };
+                productList.Add(productVm);
+            }
 
-            return RedirectToAction("Index");
+            return productList;
+        }
+
+        private async Task GetActiveCategories()
+        {
+            ViewBag.Categories = new SelectList(await _context.ProductCategories
+                .Where(cat => cat.DeletedAt == null)
+                .ToListAsync(), "Id", "Name");
         }
     }
 }

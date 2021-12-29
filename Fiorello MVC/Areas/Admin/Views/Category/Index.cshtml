@@ -64,23 +64,11 @@
                                     </i>
                                     Edit
                                 </a>
-                                @if (category.DeletedAt == null)
-                                {
-                                    <a class="btn btn-danger btn-sm shadow ml-1" data-action="delete" asp-action="Delete" asp-route-id="@category.Id">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Delete
-                                    </a>
-                                }
-                                else
-                                {
-                                    <form class="d-inline" asp-action="Restore" asp-route-id="@category.Id" method="post">
-                                        <button type="submit" class="btn btn-primary btn-sm shadow ml-1" data-toggle="tooltip" data-placement="top" title="Deleted date: @category.DeletedAt">
-                                            <i class="fas fa-trash-restore"></i>
-                                            Restore
-                                        </button>
-                                    </form>
-                                }
+                                <a class="btn btn-danger btn-sm shadow ml-1" data-action="delete" asp-action="Delete" asp-route-id="@category.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                     }

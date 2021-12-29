@@ -55,7 +55,7 @@
       const dropzone = new Dropzone(".dropzone", { 
             acceptedFiles: "image/*",
             uploadMultiple: true,
-            parallelUploads: 100,
+            parallelUploads: @ViewBag.RemainingSliderCount,
             paramName: () => "photos",
             maxFiles: @ViewBag.RemainingSliderCount,
             maxFilesize: 200,

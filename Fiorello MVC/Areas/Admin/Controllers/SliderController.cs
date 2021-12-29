@@ -74,9 +74,10 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
                     CreatedAt = DateTime.Now
                 });
             
-                await _context.SaveChangesAsync();
             }
 
+            await _context.SaveChangesAsync();
+                
             return Json(new
             {
                 success = true
@@ -175,7 +176,7 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
             if (slidersCount >= allowedSliderCount)
             {
                 TempData["flashMessageTitle"] = $"You have exceeded the number of files allowed.";
-                TempData["flashMessageIcon"] = "danger";
+                TempData["flashMessageIcon"] = "error";
                 return true;
             }
 

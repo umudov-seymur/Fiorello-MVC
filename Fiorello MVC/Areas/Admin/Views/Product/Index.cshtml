@@ -1,0 +1,124 @@
+﻿@model PagedResponse<ProductCrudViewModel>
+
+@{
+    ViewData["title"] = "Products";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/panel/vendors/datatables-bs4/css/dataTables.bootstrap4.min.css">
+}
+
+@section SectionHeader {
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">@ViewData["Title"]</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <a asp-action="Create" class="btn btn-success">
+                        <i class="fas fa-plus"></i> Create New Product
+                    </a>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th class="font-weight-bold">
+                            <input type="checkbox">
+                        </th>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Product Category</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var product in Model.Data)
+                    {
+                        <tr class="text-center">
+                            <td class="font-weight-bold">
+                                <input type="checkbox" data-id="@product.Id">
+                            </td>
+                            <td>
+                                <img src="~/assets/img/@(product.MainPhoto ?? "no-photo.jpg")" class="border" style="width: 75px; height: 75px; object-fit: cover;" alt="">
+                            </td>
+                            <td>@product.Name</td>
+                            <td>
+                                <span class="badge badge-success px-4 py-2 shadow-lg">$@product.Price</span>
+                            </td>
+                            <td>
+                                <strong>@product.CategoryName</strong>
+                            </td>
+                            <td>@product.CreatedAt</td>
+                            <td class="text-lg-center text-left min-tablet" style="width: 180px;">
+                                <a class="btn btn-info btn-sm shadow-sm" asp-action="Update" asp-route-id="@product.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm shadow ml-1" data-action="delete" asp-action="Delete" asp-route-id="@product.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+                @{
+                    var startPagination = Model.PageNumber == 1 ? 1 : Model.TotalPages == Model.PageNumber 
+                            ? Model.PageNumber - 2
+                            : Model.PageNumber - 1;
+
+                    var endPagination = Model.PageNumber == 1 ? Model.PageNumber + 2 : Model.TotalPages == Model.PageNumber
+                        ? Model.PageNumber
+                        : Model.PageNumber + 1;
+                }
+
+                <nav class="mt-4">
+                    <ul class="pagination">
+                        <li class="page-item @(Model.PageNumber == 1 ? "disabled" : String.Empty)">
+                            <a class="page-link" asp-action="Index" asp-route-pageNumber="@Model.PreviousPage" asp-route-pageSize="@Model.PageSize">Previous</a>
+                        </li>
+
+                        @for (int i = startPagination; i <= endPagination; i++)
+                        {
+                            <li class="page-item @(i == Model.PageNumber ? "active" : String.Empty)">
+                                <a class="page-link" asp-action="Index" asp-route-pageNumber="@i" asp-route-pageSize="@Model.PageSize">
+                                    @i
+                                 </a>
+                            </li>
+                        }
+
+                        <li class="page-item @(Model.PageNumber == Model.TotalPages ? "disabled" : String.Empty)">
+                            <a class="page-link" asp-action="Index" asp-route-pageNumber="@Model.NextPage" asp-route-pageSize="@Model.PageSize">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- DataTables  & Plugins -->
+    <script src="~/panel/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/panel/vendors/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/panel/vendors/datatables-responsive/js/dataTables.responsive.min.js"></script>
+
+    <partial name="_CrudScriptsPartial"/>
+}

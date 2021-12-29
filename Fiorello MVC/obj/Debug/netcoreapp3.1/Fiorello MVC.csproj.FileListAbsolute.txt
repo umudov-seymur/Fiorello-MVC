@@ -183,3 +183,7 @@ C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Adm
 C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Slider\_FormPartial.cshtml.g.cs
 C:\laragon\www\Fiorello MVC\Fiorello MVC\bin\Debug\netcoreapp3.1\Utilities.dll
 C:\laragon\www\Fiorello MVC\Fiorello MVC\bin\Debug\netcoreapp3.1\Utilities.pdb
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Create.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Update.cshtml.g.cs
+C:\laragon\www\Fiorello MVC\Fiorello MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\_FormPartial.cshtml.g.cs

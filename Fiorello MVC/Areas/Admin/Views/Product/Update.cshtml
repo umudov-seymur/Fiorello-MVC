@@ -1,4 +1,8 @@
-﻿@section SectionHeader {
+﻿@{
+    ViewData["title"] = $"{Model.Name} - Edit";
+}
+
+@section SectionHeader {
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -11,3 +15,13 @@
     </div>
     <!-- /.content-header -->
 }
+
+<div class="row">
+    <div class="col-12">
+      <div class="card card-primary card-outline">
+          <form asp-action="Update" method="post">
+                <partial name="_FormPartial"></partial>
+            </form>
+        </div>
+    </div>
+</div>
