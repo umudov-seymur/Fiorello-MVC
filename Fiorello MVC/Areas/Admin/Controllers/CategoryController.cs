@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Fiorello_MVC.DAL;
 using Fiorello_MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("{area:exists}/Categories/{action=Index}/{id:int?}")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly AppDbContext _context;

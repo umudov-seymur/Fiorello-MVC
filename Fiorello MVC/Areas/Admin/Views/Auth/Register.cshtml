@@ -1,0 +1,75 @@
+@model RegisterViewModel
+@{
+    Layout = "_AuthLayout";
+    ViewData["title"] = "Register";
+}
+<p class="login-box-msg">Register a new membership</p>
+
+<form asp-action="Register" method="post">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input asp-for="FirstName" class="form-control" placeholder="First Name">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+        <span class="invalid-feedback font-weight-bold d-block" asp-validation-for="FirstName"></span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input asp-for="LastName" class="form-control" placeholder="Last Name">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+        <span class="invalid-feedback font-weight-bold d-block" asp-validation-for="LastName"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <input asp-for="Username" class="form-control" placeholder="Username">
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-user"></span>
+      </div>
+    </div>
+    <span class="invalid-feedback font-weight-bold d-block" asp-validation-for="Username"></span>
+  </div>
+  
+  <div class="input-group mb-3">
+    <input asp-for="Email" class="form-control" placeholder="Email">
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-envelope"></span>
+      </div>
+    </div>
+    <span class="invalid-feedback font-weight-bold d-block" asp-validation-for="Email"></span>
+  </div>
+  
+  <div class="input-group mb-3">
+    <input asp-for="Password" class="form-control" placeholder="Password">
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-lock"></span>
+      </div>
+    </div>
+    <span class="invalid-feedback font-weight-bold d-block" asp-validation-for="Password"></span>
+  </div>
+  <div class="input-group mb-3">
+    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password">
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-lock"></span>
+      </div>
+    </div>
+    <span class="invalid-feedback font-weight-bold d-block" asp-validation-for="ConfirmPassword"></span>
+  </div>
+  <button type="submit" class="btn btn-danger btn-block mb-2">Register</button>
+</form>
+
+<a asp-action="Login" class="text-center">I already have a membership</a>

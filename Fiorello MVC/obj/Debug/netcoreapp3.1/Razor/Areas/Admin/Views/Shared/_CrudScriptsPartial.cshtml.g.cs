@@ -40,8 +40,22 @@ using Fiorello_MVC.Areas.Admin.ViewModels.ProductViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\_ViewImports.cshtml"
+using Fiorello_MVC.Areas.Admin.ViewModels.Auth;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"305d094f4d2f6ea7870b840d83f811bad5601ad9", @"/Areas/Admin/Views/Shared/_CrudScriptsPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2b17d72f0a5c2c6eeffd99b091c45210153129d0", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d86f8fccaecfe8fa17f6bb9d7e5ab0e183ceea65", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Shared__CrudScriptsPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

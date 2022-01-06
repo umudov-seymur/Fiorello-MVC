@@ -40,8 +40,22 @@ using Fiorello_MVC.Areas.Admin.ViewModels.ProductViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\_ViewImports.cshtml"
+using Fiorello_MVC.Areas.Admin.ViewModels.Auth;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9fbeed032cc6eeab11994a00bb8c525537db6652", @"/Areas/Admin/Views/Category/Update.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2b17d72f0a5c2c6eeffd99b091c45210153129d0", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d86f8fccaecfe8fa17f6bb9d7e5ab0e183ceea65", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Category_Update : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ProductCategory>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_FormPartial", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -95,9 +109,9 @@ using Fiorello_MVC.Areas.Admin.ViewModels.ProductViewModel;
             }
             );
             WriteLiteral("\n<div class=\"row\">\n    <div class=\"col-12\">\n      <div class=\"card card-primary card-outline\">\n          ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9fbeed032cc6eeab11994a00bb8c525537db66525908", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9fbeed032cc6eeab11994a00bb8c525537db66526313", async() => {
                 WriteLiteral("\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9fbeed032cc6eeab11994a00bb8c525537db66526180", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9fbeed032cc6eeab11994a00bb8c525537db66526585", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

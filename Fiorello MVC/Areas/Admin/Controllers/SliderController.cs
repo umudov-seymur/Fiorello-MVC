@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Fiorello_MVC.Areas.Admin.ViewModels;
 using Fiorello_MVC.DAL;
 using Fiorello_MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("{area:exists}/Sliders/{action=Index}/{id:int?}")]
+    [Authorize]
     public class SliderController : Controller
     {
         private readonly AppDbContext _context;

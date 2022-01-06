@@ -7,7 +7,7 @@ namespace Fiorello_MVC.Areas.Admin.ViewComponents
 {
     public class SidebarViewComponent : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
+        public Task<IViewComponentResult> InvokeAsync()
         {
             var menus = new List<MenuViewModel>
             {
@@ -62,7 +62,7 @@ namespace Fiorello_MVC.Areas.Admin.ViewComponents
                 }
             };
 
-            return View(menus);
+            return Task.FromResult<IViewComponentResult>(View(menus));
         }
     }
 }

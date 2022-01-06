@@ -40,8 +40,22 @@ using Fiorello_MVC.Areas.Admin.ViewModels.ProductViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\_ViewImports.cshtml"
+using Fiorello_MVC.Areas.Admin.ViewModels.Auth;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4858a09313eb900758fb573e24b3659703e3327e", @"/Areas/Admin/Views/Slider/Create.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2b17d72f0a5c2c6eeffd99b091c45210153129d0", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d86f8fccaecfe8fa17f6bb9d7e5ab0e183ceea65", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Slider_Create : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<SliderViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -100,7 +114,7 @@ using Fiorello_MVC.Areas.Admin.ViewModels.ProductViewModel;
 #line hidden
 #nullable disable
                 WriteLiteral("</h1>\n                </div><!-- /.col -->\n                  <div class=\"col-sm-6 d-flex justify-content-end\">\n                      ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4858a09313eb900758fb573e24b3659703e3327e7151", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4858a09313eb900758fb573e24b3659703e3327e7556", async() => {
                     WriteLiteral("\n                          <i class=\"fas fa-times\"></i> Cancel\n                      ");
                 }
                 );
@@ -121,7 +135,7 @@ using Fiorello_MVC.Areas.Admin.ViewModels.ProductViewModel;
             );
             WriteLiteral("\n<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"card card-primary card-outline\">\n");
             WriteLiteral("            <div id=\"dropzone\">\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4858a09313eb900758fb573e24b3659703e3327e8944", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4858a09313eb900758fb573e24b3659703e3327e9349", async() => {
                 WriteLiteral("\n                    <div class=\"dz-message needsclick\">\n                        Drop slider photos here or click to upload.<br>\n                        Remaining allowed photos count: <strong>");
 #nullable restore
 #line 43 "C:\laragon\www\Fiorello MVC\Fiorello MVC\Areas\Admin\Views\Slider\Create.cshtml"

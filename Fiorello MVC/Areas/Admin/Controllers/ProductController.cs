@@ -7,6 +7,7 @@ using Fiorello_MVC.DAL;
 using Fiorello_MVC.Filter;
 using Fiorello_MVC.Models;
 using Fiorello_MVC.Wrappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ namespace Fiorello_MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("{area:exists}/Products/{action=Index}/{id:int?}")]
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;

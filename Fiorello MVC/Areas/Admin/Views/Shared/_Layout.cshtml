@@ -102,29 +102,29 @@
     <script src="~/panel/dist/js/adminlte.js"></script>
     <!-- Sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-    
-@if (TempData["flashMessageTitle"] != null)
-{
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 5000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
-    
-        Toast.fire({
-            icon: '@(TempData["flashMessageIcon"] ?? "success")',
-            title: '@TempData["flashMessageTitle"]'
-        })
-    </script>
-}
+        
+    @if (TempData["flashMessageTitle"] != null)
+    {
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+        
+            Toast.fire({
+                icon: '@(TempData["flashMessageIcon"] ?? "success")',
+                title: '@TempData["flashMessageTitle"]'
+            })
+        </script>
+    }
 
-@RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
